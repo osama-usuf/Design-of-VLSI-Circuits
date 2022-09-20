@@ -1,5 +1,5 @@
 $date
-	Sun Sep 18 18:16:28 2022
+	Tue Sep 20 14:08:03 2022
 $end
 $version
 	Icarus Verilog
@@ -7,7 +7,7 @@ $end
 $timescale
 	1s
 $end
-$scope module Universal_Shift_Reg_TB $end
+$scope module universal_shift_reg_tb $end
 $var wire 1 ! msb_out $end
 $var wire 1 " lsb_out $end
 $var wire 4 # data_out [3:0] $end
