@@ -1,0 +1,180 @@
+$date
+	Mon Sep 19 23:47:14 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module counter_4bit_tb $end
+$var wire 4 ! out [3:0] $end
+$var reg 4 " D [3:0] $end
+$var reg 1 # clk $end
+$var reg 1 $ enable $end
+$var reg 1 % load $end
+$var reg 1 & rst $end
+$scope module c4b $end
+$var wire 4 ' D [3:0] $end
+$var wire 1 # clk $end
+$var wire 1 $ enable $end
+$var wire 1 % load $end
+$var wire 1 & rst $end
+$var reg 4 ( out [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx (
+b1101 '
+0&
+0%
+1$
+1#
+b1101 "
+bx !
+$end
+#10
+0#
+#20
+1#
+1&
+#30
+b0 !
+b0 (
+0#
+#35
+0&
+#40
+1#
+#50
+b1 !
+b1 (
+0#
+0$
+#60
+1#
+#70
+b10 !
+b10 (
+0#
+#80
+1#
+#90
+b11 !
+b11 (
+0#
+#100
+1#
+#110
+b100 !
+b100 (
+0#
+#120
+1#
+#130
+b101 !
+b101 (
+0#
+#140
+1#
+#150
+b110 !
+b110 (
+0#
+#160
+1#
+#170
+b111 !
+b111 (
+0#
+#180
+1#
+#190
+b1000 !
+b1000 (
+0#
+#200
+1#
+#210
+b1001 !
+b1001 (
+0#
+#220
+1#
+#230
+b1010 !
+b1010 (
+0#
+#240
+1#
+#250
+b1011 !
+b1011 (
+0#
+#260
+1#
+#270
+b1100 !
+b1100 (
+0#
+#280
+1#
+#290
+b1101 !
+b1101 (
+0#
+#300
+1#
+#310
+b1110 !
+b1110 (
+0#
+#320
+1#
+#330
+b1111 !
+b1111 (
+0#
+#340
+1#
+#350
+b0 !
+b0 (
+0#
+#360
+1#
+1%
+#370
+b1101 !
+b1101 (
+0#
+#380
+1#
+0%
+#390
+b1110 !
+b1110 (
+0#
+#400
+1#
+#410
+b1111 !
+b1111 (
+0#
+#420
+1#
+#430
+b0 !
+b0 (
+0#
+#440
+1#
+#450
+b1 !
+b1 (
+0#
