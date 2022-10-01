@@ -88,6 +88,4 @@ module fifo
         end
     end
 
-
-
 endmodule
