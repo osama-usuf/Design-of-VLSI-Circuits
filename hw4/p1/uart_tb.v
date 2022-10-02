@@ -1,12 +1,14 @@
-module divideby13_tb();
-
-    wire sys_clock_by_13;
-    reg sys_clock, reset;
+module uart_clk_gen_tb();
 
     integer tb_cycle_number = 1;
     integer total_errors = 0;  // tracking total errors in assertions
     integer i; // loop variable
 
+    // Inputs
+    reg Sys_clock, reset;
+    reg [2:0] Sel_Baud_Rate;
+    // Outputs
+    wire Clock, Sample_clock;
     //////////// EVENTS //////////////
 
     // Increment TB cycle number
@@ -40,32 +42,37 @@ module divideby13_tb();
         end
     end
     // absolute timed watchdog
-    initial #300 -> watchdog;
+    initial #5000 -> watchdog;
 
-    // Create the div13 dvt
-    divideby13 dvt(.sys_clock_by_13(sys_clock_by_13),
-                   .sys_clock(sys_clock),
-                   .reset(reset));
+    // Create the dvt
+
+    uart_clk_gen dvt(// Outputs
+                     .Clock(Clock),
+                     .Sample_clock(Sample_clock),
+                     // Inputs
+                     .Sys_clock(Sys_clock),
+                     .reset(reset),
+                     .Sel_Baud_Rate(Sel_Baud_Rate));
     
-    // set clock frequencies, reader is independent of writer
     initial begin
-        sys_clock = 1'b0;
-        forever #5 sys_clock = ~sys_clock;
+        Sys_clock = 1'b0;
+        forever #5 Sys_clock = ~Sys_clock;
     end
 
-    event reset_divby13;
+    event reset_uart;
     initial begin 
-        forever @(reset_divby13) begin
+        forever @(reset_uart) begin
             reset = 1'b0;
             #10 reset = 1'b1;
+            Sel_Baud_Rate = 3'b000;
             -> tb_cycle_update;
         end
     end
 
-
-    event case_2;
+    event init_baud;
     initial begin 
-        forever @(case_2) begin
+        forever @(init_baud) begin
+
             -> tb_cycle_update;
         end
     end
@@ -73,16 +80,15 @@ module divideby13_tb();
     // Test Case Loop
     always @ (*) begin
         case(tb_cycle_number)
-            1: -> reset_divby13;
-            2: -> case_2;
-            //default: -> watchdog;
+            1: -> reset_uart;
+            2: -> init_baud;
         endcase
     end
 
     // Log *vcd file for vieweing in gtkWave
     initial begin
-        $dumpfile("divideby13.vcd");
-        $dumpvars(0, divideby13_tb);
+        $dumpfile("uart_clk_gen.vcd");
+        $dumpvars(0, uart_clk_gen_tb);
     end
 
 endmodule

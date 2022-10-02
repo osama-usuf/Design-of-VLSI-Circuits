@@ -1,7 +1,7 @@
-module divideby13_tb();
+module divideby8_tb();
 
-    wire sys_clock_by_13;
-    reg sys_clock, reset;
+    wire clock_by_8;
+    reg clock, reset;
 
     integer tb_cycle_number = 1;
     integer total_errors = 0;  // tracking total errors in assertions
@@ -42,20 +42,20 @@ module divideby13_tb();
     // absolute timed watchdog
     initial #300 -> watchdog;
 
-    // Create the div13 dvt
-    divideby13 dvt(.sys_clock_by_13(sys_clock_by_13),
-                   .sys_clock(sys_clock),
+    // Create the div8 dvt
+    divideby8 dvt(.clock_by_8(clock_by_8),
+                   .clock(clock),
                    .reset(reset));
     
     // set clock frequencies, reader is independent of writer
     initial begin
-        sys_clock = 1'b0;
-        forever #5 sys_clock = ~sys_clock;
+        clock = 1'b0;
+        forever #5 clock = ~clock;
     end
 
-    event reset_divby13;
+    event reset_divby8;
     initial begin 
-        forever @(reset_divby13) begin
+        forever @(reset_divby8) begin
             reset = 1'b0;
             #10 reset = 1'b1;
             -> tb_cycle_update;
@@ -73,16 +73,15 @@ module divideby13_tb();
     // Test Case Loop
     always @ (*) begin
         case(tb_cycle_number)
-            1: -> reset_divby13;
-            2: -> case_2;
+            1: -> reset_divby8;
             //default: -> watchdog;
         endcase
     end
 
     // Log *vcd file for vieweing in gtkWave
     initial begin
-        $dumpfile("divideby13.vcd");
-        $dumpvars(0, divideby13_tb);
+        $dumpfile("divideby8.vcd");
+        $dumpvars(0, divideby8_tb);
     end
 
 endmodule
