@@ -1,8 +1,10 @@
 `timescale 1us/1ps
 
-module uart_clk_gen_tb();
+module uart_clk_gen_tb
+    #(parameter resolution = 2.0) // parameter to control the accuracy of the baud rate pair generation, higher-res means higher accuracy of the frequency
+();
 
-    integer delay = 10;
+    integer delay = 500000 * resolution;
     integer tb_cycle_number = 1;
     integer total_errors = 0;  // tracking total errors in assertions
     real Clock_counter = 0;
@@ -77,7 +79,8 @@ module uart_clk_gen_tb();
     event case_1;
     initial begin 
         forever @(case_1) begin
-            $display("\nSel_Baud_Rate\tClock\tSample_Clock");
+            $display("\nResolution is %0.5f, Baud Rate Pairs will be extrapolated from ~%0.0f useconds", resolution, delay);
+            $display("\nSel_Baud_Rate\tClock\t\tSample_Clock");
             Sel_Baud_Rate = 3'b000;
             // Reset the generator + counts
             reset <= 1'b0;
@@ -85,8 +88,8 @@ module uart_clk_gen_tb();
             Clock_counter <= 0;
             Sample_Clock_counter <= 0;
             // since we have to count the frequency / second, we ensure the sim runs for a complete second first
-            #(1000000+delay); 
-            $display("\t%b\t%d\t%f", Sel_Baud_Rate, Clock_counter / 2, Sample_Clock_counter / 2);
+            #(delay); 
+            $display("\t%b\t%7.1f\t\t%7.1f", Sel_Baud_Rate, Clock_counter / resolution, Sample_Clock_counter / resolution);
             -> tb_cycle_update;
         end
     end
@@ -96,13 +99,13 @@ module uart_clk_gen_tb();
         forever @(case_2) begin
             Sel_Baud_Rate <= Sel_Baud_Rate + 1;
             // Reset the generator + frequency counters
-            reset <= 1'b0;
-            #1 reset <= 1'b1;
+            // reset <= 1'b0;
+            // #1 reset <= 1'b1;
             Clock_counter <= 0;
             Sample_Clock_counter <= 0;
             // since we have to count the frequency / second, we ensure the sim runs for a complete second first
-            #(1000000+delay); 
-            $display("\t%b\t%d\t%f", Sel_Baud_Rate, Clock_counter / 2, Sample_Clock_counter / 2);
+            #(delay); 
+            $display("\t%b\t%7.1f\t\t%7.1f", Sel_Baud_Rate, Clock_counter / resolution, Sample_Clock_counter / resolution);
             -> tb_cycle_update;
         end
     end
