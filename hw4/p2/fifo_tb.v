@@ -1,6 +1,5 @@
 `timescale 1ns/1ps
 module fifo_tb
-    // Todo: make sure it's consistent with the dvt
     #(parameter depth = 96,
       parameter ptr_size = $clog2(depth), // # of bits to completely address all depth entries of the FIFO array
       parameter width_in = 8,

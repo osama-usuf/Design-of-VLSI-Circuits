@@ -1,6 +1,6 @@
 `timescale 1us/1fs
 
-module uart_clk_gen_tb
+module mealy_tb
     #(parameter resolution = 0.05) // parameter to control the accuracy of the baud rate pair generation, higher-res means higher accuracy of the frequency
 ();
 

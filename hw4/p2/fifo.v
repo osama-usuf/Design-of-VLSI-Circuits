@@ -14,7 +14,7 @@ module fifo
       parameter width_out = 1 * width_in) // TODO
 
     // inputs
-    (input clk_read,
+    (input  clk_read,
             clk_write, 
             rst,
             enable_read, 

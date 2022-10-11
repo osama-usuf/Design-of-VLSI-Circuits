@@ -1,20 +1,0 @@
-VCD info: dumpfile uart_clk_gen.vcd opened for output.
-
-Resolution is 2.000000, Baud Rate Pairs will be extrapolated from     1000000 seconds
-
-Sel_Baud_Rate	Clock	Sample_Clock
-** VVP Stop(0) **
-** Flushing output streams.
-** Current simulation time is 69085562500 ticks.
-> ** Continue **
-** VVP Stop(0) **
-** Flushing output streams.
-** Current simulation time is 86628375000 ticks.
-> (i-search)`': >             > (i-search)`': >             > (i-search)`': >             > ** Continue **
-** VVP Stop(0) **
-** Flushing output streams.
-** Current simulation time is 145651062500 ticks.
-> (i-search)`': >             > <13.v divideby256.v divideby8.v 8to1mux.v && vvp dvt
-Unknown command: iverilog
-Try the help command to get a summary
-of available commands.
