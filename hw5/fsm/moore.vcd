@@ -1,0 +1,166 @@
+$date
+	Wed Oct 12 13:20:50 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1fs
+$end
+$scope module moore_tb $end
+$var event 1 ! watchdog $end
+$var event 1 " tb_cycle_update $end
+$var event 1 # state_loop $end
+$var event 1 $ reset_fsm $end
+$var event 1 % error_print $end
+$var wire 2 & next_state [1:0] $end
+$var wire 1 ' moore_out $end
+$var wire 2 ( current_state [1:0] $end
+$var parameter 2 ) blue_state $end
+$var parameter 2 * green_state $end
+$var parameter 2 + red_state $end
+$var parameter 2 , white_state $end
+$var reg 1 - blue $end
+$var reg 1 . clk $end
+$var reg 1 / green $end
+$var reg 1 0 red $end
+$var reg 1 1 reset $end
+$var real 1 2 delay $end
+$var integer 32 3 error_count [31:0] $end
+$var integer 32 4 tb_cycle_number [31:0] $end
+$var integer 32 5 total_errors [31:0] $end
+$scope module fsm $end
+$var wire 1 - blue $end
+$var wire 1 . clk $end
+$var wire 1 / green $end
+$var wire 1 0 red $end
+$var wire 1 1 reset $end
+$var parameter 2 6 blue_state $end
+$var parameter 2 7 green_state $end
+$var parameter 2 8 red_state $end
+$var parameter 2 9 white_state $end
+$var reg 2 : current_state [1:0] $end
+$var reg 1 ' moore_out $end
+$var reg 2 ; next_state [1:0] $end
+$upscope $end
+$scope task error_print_task $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b0 9
+b1 8
+b10 7
+b11 6
+b0 ,
+b1 +
+b10 *
+b11 )
+$end
+#0
+$dumpvars
+b0 ;
+b0 :
+b0 5
+b1 4
+b0 3
+r0.1 2
+11
+00
+0/
+0.
+0-
+b0 (
+0'
+b0 &
+1%
+1$
+1#
+1"
+1!
+$end
+#100000000
+b1 &
+b1 ;
+10
+1#
+b10 4
+01
+1.
+1"
+#200000000
+0.
+#300000000
+1'
+b1 (
+b1 :
+1.
+#350000000
+b0 &
+b0 ;
+00
+#400000000
+0.
+#500000000
+0'
+b0 (
+b0 :
+1.
+#600000000
+b10 &
+b10 ;
+0.
+1/
+#700000000
+1'
+b10 (
+b10 :
+1.
+#800000000
+0.
+#850000000
+b0 &
+b0 ;
+0/
+#900000000
+0'
+b0 (
+b0 :
+1.
+#1000000000
+0.
+#1100000000
+1.
+#1150000000
+b11 &
+b11 ;
+1-
+#1200000000
+0.
+#1300000000
+1'
+b11 (
+b11 :
+1.
+#1400000000
+b0 &
+b0 ;
+0.
+0-
+#1500000000
+0'
+b0 (
+b0 :
+1.
+#1600000000
+0.
+#1650000000
+1!
+b11 4
+1"
+#1700000000
+1.
+#1800000000
+0.
+#1850000000

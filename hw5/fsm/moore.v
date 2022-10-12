@@ -7,10 +7,9 @@ module moore
      (input clk, 
       input reset, // asynchronous reset port
       input red, green, blue, // 3-bit input
-      output reg moore_out // moore output: 1 when a state change corresponds to a color change
+      output reg moore_out, // moore output: 1 when a state change corresponds to a color change
+      output reg [1:0] current_state, next_state // 4 possible states, so we require at least 2 bits
      );
-
-     reg [1:0] current_state, next_state; // 4 possible states, so we require at least 2 bits
     
     // moore FSM - output is a function of only current state
 
