@@ -7,10 +7,9 @@ module mealy
      (input clk, 
       input reset, // asynchronous reset port
       input red, green, blue, // 3-bit input
-      output reg mealy_out // mealy output: 1 when a state change corresponds to a color change
+      output reg mealy_out, // mealy output: 1 when a state change corresponds to a color change
+      output reg[1:0] current_state, next_state // 4 possible states, so we require at least 2 bits
      );
-
-     reg [1:0] current_state, next_state; // 4 possible states, so we require at least 2 bits
     
     // Mealy FSM - output is a function of current state and input
 

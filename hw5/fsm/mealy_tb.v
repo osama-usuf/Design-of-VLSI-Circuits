@@ -1,22 +1,29 @@
 `timescale 1us/1fs
 
 module mealy_tb
-    #(parameter resolution = 0.05) // parameter to control the accuracy of the baud rate pair generation, higher-res means higher accuracy of the frequency
-();
+    // state encodings
+    #(parameter white_state = 2'b00,
+      parameter red_state = 2'b01,
+      parameter green_state = 2'b10,
+      parameter blue_state = 2'b11)
+    ();
 
-    integer delay = 500000 * resolution;
+    // TB values
     integer tb_cycle_number = 1;
     integer total_errors = 0;  // tracking total errors in assertions
-    real Clock_counter = 0;
-    real Sample_Clock_counter = 0; 
+    integer error_count = 0;
 
-    // Inputs
-    reg Sys_clock, reset;
-    reg [2:0] Sel_Baud_Rate;
-    // Outputs
-    wire Clock, Sample_clock;
-    //////////// EVENTS //////////////
+    real delay = 0.1;
 
+    // Input registers to drive wires
+    reg clk, reset;
+    reg red, green, blue;
+
+    // Output wires for registered FSM ports
+    wire mealy_out; // main output, dubbed mealy_out/moore_out inside the FSM modules
+    wire [1:0] current_state, next_state;
+
+    // Events
     // Increment TB cycle number
     event tb_cycle_update;
     initial begin 
@@ -25,76 +32,174 @@ module mealy_tb
         end
     end
 
-    // Increment error variable for error monitor
-    event error;
-    initial begin 
-        forever @(error) begin
-            total_errors <= total_errors + 1;
+    // Remove since unused
+    event error_print;
+    initial begin
+        forever @(error_print) begin
+            if (error_count == 0) $display("Case Passed:", error_count, " error(s)");
+            else $display("Case Failed:", error_count, " error(s)");
+            total_errors = total_errors + error_count;
         end
     end
+
+    task error_print_task();
+    begin
+        @ (posedge clk) begin
+            if (error_count == 0) $display("Case Passed:", error_count, " error(s)");
+            else $display("Case Failed:", error_count, " error(s)");
+            total_errors = total_errors + error_count;
+        end
+    end
+    endtask
 
     // Watchdog - used for exiting and reports error monitor
     event watchdog;
     initial begin
         forever @(watchdog) begin
-            $display("Total Error Count: ", total_errors);
+            #(delay * 2);
+            $display("\nTotal Error Count: ", total_errors);
             $finish;
         end
     end
 
+    event reset_fsm;
     initial begin
-        forever @ (Clock) begin
-            Clock_counter <= Clock_counter + 1;
-        end
-    end
-
-    initial begin
-        forever @ (Sample_clock) begin
-            Sample_Clock_counter <= Sample_Clock_counter + 1;
-        end
-    end
-
-    // Create the dvt
-    uart_clk_gen dvt(// Outputs
-                     .Clock(Clock),
-                     .Sample_clock(Sample_clock),
-                     // Inputs
-                     .Sys_clock(Sys_clock),
-                     .reset(reset),
-                     .Sel_Baud_Rate(Sel_Baud_Rate));
-    
-    initial begin
-        Sys_clock <= 1'b0;
-        forever #0.0625 Sys_clock <= ~Sys_clock; // 8 MHz clock
-    end
-
-    event case_1;
-    initial begin 
-        forever @(case_1) begin
-            $display("\nResolution is %0.5f, Baud Rate Pairs will be extrapolated from ~%0.0f useconds", resolution, delay);
-            $display("\nSel_Baud_Rate\tClock\t\tSample_Clock");
-            Sel_Baud_Rate = 3'b000;
-            // Reset the generator + counts
-            reset <= 1'b0;
-            #1 reset <= 1'b1;
-            Clock_counter <= 0;
-            Sample_Clock_counter <= 0;
-            // since we have to count the frequency / second, we ensure the sim runs for a complete second first
-            #(delay); 
-            $display("\t%b\t%7.1f\t\t%7.1f", Sel_Baud_Rate, Clock_counter / resolution, Sample_Clock_counter / resolution);
+        forever @(reset_fsm) begin
+            red <= 1'b0;
+            green <= 1'b0;
+            blue <= 1'b0;
+            reset <= 1'b1;
+            #(delay) reset <= 1'b0;
             -> tb_cycle_update;
         end
     end
 
-    event case_2;
+    // Create the FSM
+    mealy fsm(  
+                .clk(clk),
+                .reset(reset),
+                .red(red), .green(green), .blue(blue),
+                .mealy_out(mealy_out),
+                .current_state(current_state), .next_state(next_state)
+            );
+
+    initial begin
+        clk <= 1'b0;
+        forever #delay clk <= ~clk; // 8 MHz clock
+    end
+    
+    event state_loop;
     initial begin 
-        forever @(case_2) begin
-            Sel_Baud_Rate <= Sel_Baud_Rate + 1;
-            Clock_counter <= 0;
-            Sample_Clock_counter <= 0;
-            // since we have to count the frequency / second, we ensure the sim runs for a complete second first
-            #(delay); 
-            $display("\t%b\t%7.1f\t\t%7.1f", Sel_Baud_Rate, Clock_counter / resolution, Sample_Clock_counter / resolution);
+        forever @(state_loop) begin
+            // Transition: 1XX / 1 (WhiteState)
+
+            $display("\nTesting Transition: 1XX / 1 (WhiteState)");
+            error_count = 0;
+            if (mealy_out != 0) error_count = error_count + 1; // ensures that we start at steady state
+            red <= 1;
+            #(delay);
+
+            if (mealy_out == 1'b0) error_count = error_count + 1; // FSM output will instantly be 1 (mealy)
+            if (current_state != white_state) error_count = error_count + 1;
+            if (next_state != red_state) error_count = error_count + 1; // testing for current & next states
+
+            error_print_task;
+
+            $display("\nTesting Transition: 1XX / 0 (RedState)");
+            #(delay);
+            error_count = 0;
+            if (mealy_out != 1'b0) error_count = error_count + 1;
+            if (current_state != red_state)  error_count = error_count + 1;
+            if (next_state != red_state) error_count = error_count + 1;
+
+            error_print_task;
+
+            $display("\nTesting Transition: 000 / 0 (RedState)");
+            error_count = 0;
+            red <= 0;
+            #(delay);
+
+            if (mealy_out == 1'b1) error_count = error_count + 1; // FSM output will instantly be 1 (mealy)
+            if (current_state != red_state) error_count = error_count + 1;
+            if (next_state != white_state) error_count = error_count + 1; // testing for current & next states
+
+            error_print_task;
+
+            $display("\nTesting Transition: 000 / 0 (WhiteState)");
+            #(delay);
+            error_count = 0;
+            if (mealy_out != 1'b0) error_count = error_count + 1;
+            if (current_state != white_state)  error_count = error_count + 1;
+            if (next_state != white_state) error_count = error_count + 1;
+
+            error_print_task;
+
+            $display("\nTesting Transition: 01X / 0 (WhiteState)");
+            red <= 0;
+            green <= 1;
+            #(delay);
+
+            if (mealy_out == 1'b0) error_count = error_count + 1; // FSM output will instantly be 1 (mealy)
+            if (current_state != white_state) error_count = error_count + 1;
+            if (next_state != green_state) error_count = error_count + 1; // testing for current & next states
+
+            error_print_task;
+
+            $display("\nTesting Transition: X1X / 0 (GreenState)");
+            #(delay);
+            error_count = 0;
+            if (mealy_out != 1'b0) error_count = error_count + 1;
+            if (current_state != green_state)  error_count = error_count + 1;
+            if (next_state != green_state) error_count = error_count + 1;
+
+            error_print_task;
+
+            $display("\nTesting Transition: 000 / 0 (GreenState)");
+            error_count = 0;
+            red <= 0;
+            green <= 0;
+            #(delay);
+
+            if (mealy_out == 1'b1) error_count = error_count + 1; // FSM output will instantly be 1 (mealy)
+            if (current_state != green_state) error_count = error_count + 1;
+            if (next_state != white_state) error_count = error_count + 1; // testing for current & next states
+
+            error_print_task;
+
+            $display("\nTesting Transition: 001 / 1 (WhiteState)");
+            red <= 0;
+            green <= 0;
+            blue <= 1;
+            #(delay);
+
+            if (mealy_out == 1'b0) error_count = error_count + 1; // FSM output will instantly be 1 (mealy)
+            if (current_state != white_state) error_count = error_count + 1;
+            if (next_state != blue_state) error_count = error_count + 1; // testing for current & next states
+
+            error_print_task;
+
+            $display("\nTesting Transition: XX1 / 0 (BlueState)");
+            #(delay);
+            error_count = 0;
+            if (mealy_out != 1'b0) error_count = error_count + 1;
+            if (current_state != blue_state)  error_count = error_count + 1;
+            if (next_state != blue_state) error_count = error_count + 1;
+
+            error_print_task;
+
+            $display("\nTesting Transition: 000 / 0 (BlueState)");
+            error_count = 0;
+            red <= 0;
+            green <= 0;
+            blue <= 0;
+            #(delay);
+
+            if (mealy_out == 1'b1) error_count = error_count + 1; // FSM output will instantly be 1 (mealy)
+            if (current_state != blue_state) error_count = error_count + 1;
+            if (next_state != white_state) error_count = error_count + 1; // testing for current & next states
+
+            error_print_task;
+
             -> tb_cycle_update;
         end
     end
@@ -102,16 +207,16 @@ module mealy_tb
     // Test Case Loop
     always @ (*) begin
         case(tb_cycle_number)
-            1: -> case_1;
-            2, 3, 4, 5, 6, 7, 8: -> case_2;
+            1: -> reset_fsm;
+            2: -> state_loop;
             default: -> watchdog;
         endcase
     end
 
     // Log *vcd file for vieweing in gtkWave
     initial begin
-        $dumpfile("uart_clk_gen.vcd");
-        $dumpvars(0, uart_clk_gen_tb);
+        $dumpfile("mealy.vcd");
+        $dumpvars(0, mealy_tb);
     end
 
 endmodule
