@@ -1,0 +1,34 @@
+VCD info: dumpfile mealy.vcd opened for output.
+
+Testing Transition: 1XX / 1 (WhiteState)
+Case Passed:          0 error(s)
+
+Testing Transition: 1XX / 0 (RedState)
+Case Passed:          0 error(s)
+
+Testing Transition: 000 / 0 (RedState)
+Case Passed:          0 error(s)
+
+Testing Transition: 000 / 0 (WhiteState)
+Case Passed:          0 error(s)
+
+Testing Transition: 01X / 0 (WhiteState)
+Case Passed:          0 error(s)
+
+Testing Transition: X1X / 0 (GreenState)
+Case Passed:          0 error(s)
+
+Testing Transition: 000 / 0 (GreenState)
+Case Passed:          0 error(s)
+
+Testing Transition: 001 / 1 (WhiteState)
+Case Passed:          0 error(s)
+
+Testing Transition: XX1 / 0 (BlueState)
+Case Passed:          0 error(s)
+
+Testing Transition: 000 / 0 (BlueState)
+Case Passed:          0 error(s)
+
+Total Error Count:           0
+mealy_tb.v:51: $finish called at 2300000000 (1fs)

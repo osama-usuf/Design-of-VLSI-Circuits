@@ -32,16 +32,6 @@ module mealy_tb
         end
     end
 
-    // Remove since unused
-    event error_print;
-    initial begin
-        forever @(error_print) begin
-            if (error_count == 0) $display("Case Passed:", error_count, " error(s)");
-            else $display("Case Failed:", error_count, " error(s)");
-            total_errors = total_errors + error_count;
-        end
-    end
-
     task error_print_task();
     begin
         @ (posedge clk) begin

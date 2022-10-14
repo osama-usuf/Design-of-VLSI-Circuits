@@ -1,0 +1,40 @@
+VCD info: dumpfile moore.vcd opened for output.
+
+Testing Transition: 1XX (WhiteState)
+Case Passed:          0 error(s)
+
+Testing Transition: 1XX (RedState)
+Case Passed:          0 error(s)
+
+Testing Transition: 0XX (RedState)
+Case Passed:          0 error(s)
+
+Testing Transition: 000 (WhiteState)
+Case Passed:          0 error(s)
+
+Testing Transition: 01X (WhiteState)
+Case Passed:          0 error(s)
+
+Testing Transition: X1X (GreenState)
+Case Passed:          0 error(s)
+
+Testing Transition: X0X (GreenState)
+Case Passed:          0 error(s)
+
+Testing Transition: 000 (WhiteState)
+Case Passed:          0 error(s)
+
+Testing Transition: 001 (WhiteState)
+Case Passed:          0 error(s)
+
+Testing Transition: XX1 (BlueState)
+Case Passed:          0 error(s)
+
+Testing Transition: XX0 (BlueState)
+Case Passed:          0 error(s)
+
+Testing Transition: 000 (WhiteState)
+Case Passed:          0 error(s)
+
+Total Error Count:           0
+moore_tb.v:51: $finish called at 1850000000 (1fs)
