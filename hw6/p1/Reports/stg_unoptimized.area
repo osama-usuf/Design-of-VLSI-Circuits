@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : stg_moore_fsm
+Version: O-2018.06-SP1
+Date   : Sun Oct 30 23:44:04 2022
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /apps/design_kits/osu_stdcells_v2p7/synopsys/lib/ami05/osu05_stdcells.db)
+
+Number of ports:                           10
+Number of nets:                            50
+Number of cells:                           47
+Number of combinational cells:             41
+Number of sequential cells:                 6
+Number of macros/black boxes:               0
+Number of buf/inv:                         14
+Number of references:                       9
+
+Combinational area:               9333.000000
+Buf/Inv area:                     2016.000000
+Noncombinational area:            4752.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 14085.000000
+Total area:                 undefined
+1

@@ -1,0 +1,17 @@
+ 
+****************************************
+Report : constraint
+Design : stg_moore_fsm
+Version: O-2018.06-SP1
+Date   : Sun Oct 30 23:41:38 2022
+****************************************
+
+
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    max_capacitance                                  0.00 (MET)
+    max_area                                     10350.00 (VIOLATED)
+
+
+1

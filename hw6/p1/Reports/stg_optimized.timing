@@ -1,0 +1,38 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : stg_moore_fsm
+Version: O-2018.06-SP1
+Date   : Sun Oct 30 23:41:38 2022
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: current_state_reg[1]
+              (rising edge-triggered flip-flop)
+  Endpoint: next_state[1]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  current_state_reg[1]/CLK (DFFSR)         0.00       0.00 r
+  current_state_reg[1]/Q (DFFSR)           0.82       0.82 f
+  U45/Y (NAND2X1)                          0.36       1.18 r
+  U44/Y (OAI21X1)                          0.19       1.37 f
+  U39/Y (NAND2X1)                          0.25       1.62 r
+  U38/Y (XNOR2X1)                          0.22       1.84 f
+  U37/Y (OAI22X1)                          0.11       1.95 r
+  next_state[1] (out)                      0.00       1.95 r
+  data arrival time                                   1.95
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

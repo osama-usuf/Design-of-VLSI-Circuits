@@ -1,0 +1,67 @@
+ 
+****************************************
+Report : cell
+Design : stg_moore_fsm
+Version: O-2018.06-SP1
+Date   : Sun Oct 30 23:44:04 2022
+****************************************
+
+Attributes:
+    b - black box (unknown)
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    u - contains unmapped logic
+
+Cell                      Reference       Library             Area  Attributes
+--------------------------------------------------------------------------------
+C7                        AND2X2          osu05_stdcells  288.000000
+C10                       OR2X1           osu05_stdcells  288.000000
+C14                       OR2X1           osu05_stdcells  288.000000
+C19                       OR2X1           osu05_stdcells  288.000000
+C23                       OR2X1           osu05_stdcells  288.000000
+C28                       OR2X1           osu05_stdcells  288.000000
+C33                       OR2X1           osu05_stdcells  288.000000
+C36                       AND2X2          osu05_stdcells  288.000000
+I_0                       INVX2           osu05_stdcells  144.000000
+I_1                       INVX2           osu05_stdcells  144.000000
+I_3                       INVX2           osu05_stdcells  144.000000
+I_4                       INVX2           osu05_stdcells  144.000000
+I_5                       INVX2           osu05_stdcells  144.000000
+I_6                       INVX2           osu05_stdcells  144.000000
+I_7                       INVX2           osu05_stdcells  144.000000
+I_8                       INVX2           osu05_stdcells  144.000000
+U5                        INVX1           osu05_stdcells  144.000000
+U7                        OR2X1           osu05_stdcells  288.000000
+U8                        OAI21X1         osu05_stdcells  207.000000
+U9                        AOI21X1         osu05_stdcells  288.000000
+U10                       NAND2X1         osu05_stdcells  216.000000
+U11                       NOR2X1          osu05_stdcells  216.000000
+U12                       OR2X1           osu05_stdcells  288.000000
+U13                       OAI21X1         osu05_stdcells  207.000000
+U14                       INVX1           osu05_stdcells  144.000000
+U15                       AOI21X1         osu05_stdcells  288.000000
+U16                       INVX1           osu05_stdcells  144.000000
+U17                       OR2X1           osu05_stdcells  288.000000
+U18                       OAI21X1         osu05_stdcells  207.000000
+U19                       AOI21X1         osu05_stdcells  288.000000
+U20                       NOR2X1          osu05_stdcells  216.000000
+U21                       INVX1           osu05_stdcells  144.000000
+U22                       AOI21X1         osu05_stdcells  288.000000
+U23                       INVX1           osu05_stdcells  144.000000
+U24                       OR2X1           osu05_stdcells  288.000000
+U25                       OR2X1           osu05_stdcells  288.000000
+U26                       OR2X1           osu05_stdcells  288.000000
+U27                       OR2X1           osu05_stdcells  288.000000
+U28                       OR2X1           osu05_stdcells  288.000000
+U29                       OR2X1           osu05_stdcells  288.000000
+U30                       INVX1           osu05_stdcells  144.000000
+current_state_reg[0]      DFFSR           osu05_stdcells  1584.000000
+                                                                    n
+current_state_reg[1]      DFFSR           osu05_stdcells  1584.000000
+                                                                    n
+current_state_reg[2]      DFFSR           osu05_stdcells  1584.000000
+                                                                    n
+--------------------------------------------------------------------------------
+Total 44 cells                                            14085.000000
+1
