@@ -1,0 +1,136 @@
+Information: Updating design information... (UID-85)
+Information: Timing loop detected. (OPT-150)
+	U3432/A U3432/Y counter_reg[4]/CLK counter_reg[4]/Q U3441/A U3441/Y U3443/A U3443/Y U3444/A U3444/Y U3310/A U3310/Y U3447/A U3447/Y U2203/B U2203/Y 
+Information: Timing loop detected. (OPT-150)
+	U3427/A U3427/Y U3429/A U3429/Y U3430/A U3430/Y U3431/A U3431/Y U3432/B U3432/Y counter_reg[4]/CLK counter_reg[4]/Q U3441/A U3441/Y U3443/A U3443/Y U3444/A U3444/Y U3310/A U3310/Y U3447/A U3447/Y U2203/B U2203/Y U3426/A U3426/Y 
+Warning: Disabling timing arc between pins 'B' and 'Y' on cell 'U2203'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'B' and 'Y' on cell 'U2201'
+         to break a timing loop. (OPT-314)
+Information: There are 783 clock pins driven by multiple clocks, and some of them are driven by up-to 2 clocks. (TIM-099)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : fifo
+Version: O-2018.06-SP1
+Date   : Thu Nov  3 19:41:46 2022
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: fifo_mem_reg[22][5]
+              (positive level-sensitive latch clocked by clk_write')
+  Endpoint: fifo_mem_reg[0][5]
+            (positive level-sensitive latch clocked by clk_read')
+  Path Group: clk_read
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk_write' (rise edge)            70.00      70.00
+  clock network delay (ideal)              0.30      70.30
+  time given to startpoint                29.28      99.58
+  fifo_mem_reg[22][5]/D (LATCH)            0.00      99.58 r
+  fifo_mem_reg[22][5]/Q (LATCH)            0.33      99.92 r
+  U2658/Y (AOI22X1)                        0.14     100.06 f
+  U2655/Y (OAI21X1)                        0.14     100.20 r
+  U2654/Y (NOR2X1)                         0.16     100.36 f
+  U2653/Y (NAND2X1)                        0.13     100.50 r
+  U2652/Y (NOR2X1)                         0.16     100.66 f
+  U2332/Y (NAND2X1)                        0.10     100.76 r
+  U2334/Y (INVX1)                          0.09     100.85 f
+  U2333/Y (NAND2X1)                        0.13     100.97 r
+  U819/Y (AOI22X1)                         0.21     101.18 f
+  U2632/Y (INVX4)                          0.18     101.36 r
+  U3290/Y (BUFX2)                          0.28     101.64 r
+  fifo_mem_reg[0][5]/D (LATCH)             0.00     101.64 r
+  data arrival time                                 101.64
+
+  clock clk_read' (rise edge)             60.00      60.00
+  clock network delay (ideal)              0.30      60.30
+  clock uncertainty                       -0.40      59.90
+  fifo_mem_reg[0][5]/CLK (LATCH)           0.00      59.90 r
+  time borrowed from endpoint             19.68      79.58
+  data required time                                 79.58
+  -----------------------------------------------------------
+  data required time                                 79.58
+  data arrival time                                -101.64
+  -----------------------------------------------------------
+  slack (VIOLATED)                                  -22.06
+
+  Time Borrowing Information
+  -----------------------------------------------
+  clk_read' nominal pulse width           20.00   
+  library setup time                      -0.32   
+  -----------------------------------------------
+  max time borrow                         19.68   
+  -----------------------------------------------
+  actual time borrow                      19.68   
+  clock uncertainty                       -0.40   
+  -----------------------------------------------
+  time given to startpoint                19.28   
+  -----------------------------------------------
+
+
+  Startpoint: ptr_write_reg[0]
+              (positive level-sensitive latch clocked by clk_read')
+  Endpoint: fifo_mem_reg[0][6]
+            (positive level-sensitive latch clocked by clk_write')
+  Path Group: clk_write
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk_read' (rise edge)            140.00     140.00
+  clock network delay (ideal)              0.30     140.30
+  time given to startpoint                19.32     159.62
+  ptr_write_reg[0]/D (LATCH)               0.00     159.62 f
+  ptr_write_reg[0]/Q (LATCH)               0.34     159.95 f
+  U2292/Y (INVX2)                          0.11     160.07 r
+  U3309/Y (AND2X2)                         0.21     160.27 r
+  U3240/Y (AND2X2)                         0.26     160.53 r
+  U2231/Y (AND2X2)                         0.34     160.87 r
+  U4706/Y (AOI22X1)                        0.18     161.05 f
+  U4707/Y (OAI21X1)                        0.14     161.19 r
+  U4711/Y (NOR2X1)                         0.16     161.36 f
+  U4712/Y (NAND2X1)                        0.12     161.48 r
+  U4726/Y (NOR2X1)                         0.16     161.63 f
+  U2436/Y (AND2X1)                         0.18     161.82 f
+  U2439/Y (NAND2X1)                        0.13     161.94 r
+  U728/Y (AOI22X1)                         0.21     162.15 f
+  U3404/Y (INVX4)                          0.18     162.33 r
+  U3300/Y (BUFX2)                          0.28     162.61 r
+  fifo_mem_reg[0][6]/D (LATCH)             0.00     162.61 r
+  data arrival time                                 162.61
+
+  clock clk_write' (rise edge)           120.00     120.00
+  clock network delay (ideal)              0.30     120.30
+  clock uncertainty                       -0.40     119.90
+  fifo_mem_reg[0][6]/CLK (LATCH)           0.00     119.90 r
+  time borrowed from endpoint             29.68     149.58
+  data required time                                149.58
+  -----------------------------------------------------------
+  data required time                                149.58
+  data arrival time                                -162.61
+  -----------------------------------------------------------
+  slack (VIOLATED)                                  -13.03
+
+  Time Borrowing Information
+  -----------------------------------------------
+  clk_write' nominal pulse width          30.00   
+  library setup time                      -0.32   
+  -----------------------------------------------
+  max time borrow                         29.68   
+  -----------------------------------------------
+  actual time borrow                      29.68   
+  clock uncertainty                       -0.40   
+  -----------------------------------------------
+  time given to startpoint                29.28   
+  -----------------------------------------------
+
+
+1

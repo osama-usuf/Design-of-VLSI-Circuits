@@ -1,0 +1,46 @@
+ 
+****************************************
+Report : port
+Design : fifo
+Version: O-2018.06-SP1
+Date   : Thu Nov  3 19:41:47 2022
+****************************************
+
+
+                       Pin      Wire     Max     Max     Connection
+Port           Dir     Load     Load     Trans   Cap     Class      Attrs
+--------------------------------------------------------------------------------
+clk_read       in      0.0000   0.0000   --      --      --         
+clk_write      in      0.0000   0.0000   --      --      --         
+data_in[0]     in      0.0000   0.0000   --      --      --         
+data_in[1]     in      0.0000   0.0000   --      --      --         
+data_in[2]     in      0.0000   0.0000   --      --      --         
+data_in[3]     in      0.0000   0.0000   --      --      --         
+data_in[4]     in      0.0000   0.0000   --      --      --         
+data_in[5]     in      0.0000   0.0000   --      --      --         
+data_in[6]     in      0.0000   0.0000   --      --      --         
+data_in[7]     in      0.0000   0.0000   --      --      --         
+enable_read    in      0.0000   0.0000   --      --      --         
+enable_write   in      0.0000   0.0000   --      --      --         
+rst            in      0.0000   0.0000   --      --      --         
+counter[0]     out     0.1000   0.0000   --      --      --         
+counter[1]     out     0.1000   0.0000   --      --      --         
+counter[2]     out     0.1000   0.0000   --      --      --         
+counter[3]     out     0.1000   0.0000   --      --      --         
+counter[4]     out     0.1000   0.0000   --      --      --         
+counter[5]     out     0.1000   0.0000   --      --      --         
+counter[6]     out     0.1000   0.0000   --      --      --         
+counter[7]     out     0.1000   0.0000   --      --      --         
+data_out[0]    out     0.1000   0.0000   --      --      --         
+data_out[1]    out     0.1000   0.0000   --      --      --         
+data_out[2]    out     0.1000   0.0000   --      --      --         
+data_out[3]    out     0.1000   0.0000   --      --      --         
+data_out[4]    out     0.1000   0.0000   --      --      --         
+data_out[5]    out     0.1000   0.0000   --      --      --         
+data_out[6]    out     0.1000   0.0000   --      --      --         
+data_out[7]    out     0.1000   0.0000   --      --      --         
+empty          out     0.1000   0.0000   --      --      --         
+full           out     0.1000   0.0000   --      --      --         
+half_full      out     0.1000   0.0000   --      --      --         
+
+1

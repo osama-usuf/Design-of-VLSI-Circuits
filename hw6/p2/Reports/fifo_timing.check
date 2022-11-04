@@ -1,0 +1,154 @@
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+Warning: timing loops detected. (TIM-209)
+    #              loop breakpoint
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+U3432/A                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+counter_reg[4]/CLK       -> counter_reg[4]/Q         osu05_stdcells/LATCH     
+U3441/A                  -> U3441/Y                  osu05_stdcells/INVX2     
+U3443/A                  -> U3443/Y                  osu05_stdcells/NAND3X1   
+U3444/A                  -> U3444/Y                  osu05_stdcells/INVX2     
+U3310/A                  -> U3310/Y                  osu05_stdcells/AND2X2    
+U3447/A                  -> U3447/Y                  osu05_stdcells/NAND2X1   
+U2203/B                  -> U2203/Y                  osu05_stdcells/NAND3X1  #
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+U3427/A                  -> U3427/Y                  osu05_stdcells/INVX2     
+U3429/A                  -> U3429/Y                  osu05_stdcells/NAND2X1   
+U3430/A                  -> U3430/Y                  osu05_stdcells/NAND2X1   
+U3431/A                  -> U3431/Y                  osu05_stdcells/INVX2     
+U3432/B                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+counter_reg[4]/CLK       -> counter_reg[4]/Q         osu05_stdcells/LATCH     
+U3441/A                  -> U3441/Y                  osu05_stdcells/INVX2     
+U3443/A                  -> U3443/Y                  osu05_stdcells/NAND3X1   
+U3444/A                  -> U3444/Y                  osu05_stdcells/INVX2     
+U3310/A                  -> U3310/Y                  osu05_stdcells/AND2X2    
+U3447/A                  -> U3447/Y                  osu05_stdcells/NAND2X1   
+U2203/B                  -> U2203/Y                  osu05_stdcells/NAND3X1  #
+U3426/A                  -> U3426/Y                  osu05_stdcells/NAND2X1   
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+counter_reg[5]/CLK       -> counter_reg[5]/Q         osu05_stdcells/LATCH     
+U3448/A                  -> U3448/Y                  osu05_stdcells/NAND3X1   
+U3449/A                  -> U3449/Y                  osu05_stdcells/INVX2     
+U3455/A                  -> U3455/Y                  osu05_stdcells/NAND3X1   
+U2201/B                  -> U2201/Y                  osu05_stdcells/NAND3X1  #
+U3428/A                  -> U3428/Y                  osu05_stdcells/INVX2     
+U3429/B                  -> U3429/Y                  osu05_stdcells/NAND2X1   
+U3430/A                  -> U3430/Y                  osu05_stdcells/NAND2X1   
+U3431/A                  -> U3431/Y                  osu05_stdcells/INVX2     
+U3432/B                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+U3448/B                  -> U3448/Y                  osu05_stdcells/NAND3X1   
+U3449/A                  -> U3449/Y                  osu05_stdcells/INVX2     
+U3455/A                  -> U3455/Y                  osu05_stdcells/NAND3X1   
+U2201/B                  -> U2201/Y                  osu05_stdcells/NAND3X1  #
+U3428/A                  -> U3428/Y                  osu05_stdcells/INVX2     
+U3429/B                  -> U3429/Y                  osu05_stdcells/NAND2X1   
+U3430/A                  -> U3430/Y                  osu05_stdcells/NAND2X1   
+U3431/A                  -> U3431/Y                  osu05_stdcells/INVX2     
+U3432/B                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+counter_reg[4]/CLK       -> counter_reg[4]/Q         osu05_stdcells/LATCH     
+U3441/A                  -> U3441/Y                  osu05_stdcells/INVX2     
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+counter_reg[2]/CLK       -> counter_reg[2]/Q         osu05_stdcells/LATCH     
+U2402/A                  -> U2402/Y                  osu05_stdcells/INVX4     
+U3448/C                  -> U3448/Y                  osu05_stdcells/NAND3X1   
+U3449/A                  -> U3449/Y                  osu05_stdcells/INVX2     
+U3455/A                  -> U3455/Y                  osu05_stdcells/NAND3X1   
+U2201/B                  -> U2201/Y                  osu05_stdcells/NAND3X1  #
+U3428/A                  -> U3428/Y                  osu05_stdcells/INVX2     
+U3429/B                  -> U3429/Y                  osu05_stdcells/NAND2X1   
+U3430/A                  -> U3430/Y                  osu05_stdcells/NAND2X1   
+U3431/A                  -> U3431/Y                  osu05_stdcells/INVX2     
+U3432/B                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+counter_reg[0]/CLK       -> counter_reg[0]/Q         osu05_stdcells/LATCH     
+U2401/A                  -> U2401/Y                  osu05_stdcells/INVX4     
+U3455/B                  -> U3455/Y                  osu05_stdcells/NAND3X1   
+U2201/B                  -> U2201/Y                  osu05_stdcells/NAND3X1  #
+U3428/A                  -> U3428/Y                  osu05_stdcells/INVX2     
+U3429/B                  -> U3429/Y                  osu05_stdcells/NAND2X1   
+U3430/A                  -> U3430/Y                  osu05_stdcells/NAND2X1   
+U3431/A                  -> U3431/Y                  osu05_stdcells/INVX2     
+U3432/B                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+counter_reg[7]/CLK       -> counter_reg[7]/Q         osu05_stdcells/LATCH     
+U3450/A                  -> U3450/Y                  osu05_stdcells/NOR2X1    
+U3453/A                  -> U3453/Y                  osu05_stdcells/NAND3X1   
+U3454/A                  -> U3454/Y                  osu05_stdcells/INVX2     
+U3455/C                  -> U3455/Y                  osu05_stdcells/NAND3X1   
+U2201/B                  -> U2201/Y                  osu05_stdcells/NAND3X1  #
+U3428/A                  -> U3428/Y                  osu05_stdcells/INVX2     
+U3429/B                  -> U3429/Y                  osu05_stdcells/NAND2X1   
+U3430/A                  -> U3430/Y                  osu05_stdcells/NAND2X1   
+U3431/A                  -> U3431/Y                  osu05_stdcells/INVX2     
+U3432/B                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+counter_reg[6]/CLK       -> counter_reg[6]/Q         osu05_stdcells/LATCH     
+U3442/A                  -> U3442/Y                  osu05_stdcells/INVX2     
+U3450/B                  -> U3450/Y                  osu05_stdcells/NOR2X1    
+U3453/A                  -> U3453/Y                  osu05_stdcells/NAND3X1   
+U3454/A                  -> U3454/Y                  osu05_stdcells/INVX2     
+U3455/C                  -> U3455/Y                  osu05_stdcells/NAND3X1   
+U2201/B                  -> U2201/Y                  osu05_stdcells/NAND3X1  #
+U3428/A                  -> U3428/Y                  osu05_stdcells/INVX2     
+U3429/B                  -> U3429/Y                  osu05_stdcells/NAND2X1   
+U3430/A                  -> U3430/Y                  osu05_stdcells/NAND2X1   
+U3431/A                  -> U3431/Y                  osu05_stdcells/INVX2     
+U3432/B                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+counter_reg[3]/CLK       -> counter_reg[3]/Q         osu05_stdcells/LATCH     
+U3451/A                  -> U3451/Y                  osu05_stdcells/INVX2     
+U3453/B                  -> U3453/Y                  osu05_stdcells/NAND3X1   
+U3454/A                  -> U3454/Y                  osu05_stdcells/INVX2     
+U3455/C                  -> U3455/Y                  osu05_stdcells/NAND3X1   
+U2201/B                  -> U2201/Y                  osu05_stdcells/NAND3X1  #
+U3428/A                  -> U3428/Y                  osu05_stdcells/INVX2     
+U3429/B                  -> U3429/Y                  osu05_stdcells/NAND2X1   
+U3430/A                  -> U3430/Y                  osu05_stdcells/NAND2X1   
+U3431/A                  -> U3431/Y                  osu05_stdcells/INVX2     
+U3432/B                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+
+                 cell_arc                            lib cell
+--------------------------------------------------------------------------------
+counter_reg[1]/CLK       -> counter_reg[1]/Q         osu05_stdcells/LATCH     
+U3452/A                  -> U3452/Y                  osu05_stdcells/INVX2     
+U3453/C                  -> U3453/Y                  osu05_stdcells/NAND3X1   
+U3454/A                  -> U3454/Y                  osu05_stdcells/INVX2     
+U3455/C                  -> U3455/Y                  osu05_stdcells/NAND3X1   
+U2201/B                  -> U2201/Y                  osu05_stdcells/NAND3X1  #
+U3428/A                  -> U3428/Y                  osu05_stdcells/INVX2     
+U3429/B                  -> U3429/Y                  osu05_stdcells/NAND2X1   
+U3430/A                  -> U3430/Y                  osu05_stdcells/NAND2X1   
+U3431/A                  -> U3431/Y                  osu05_stdcells/INVX2     
+U3432/B                  -> U3432/Y                  osu05_stdcells/NAND2X1   
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1

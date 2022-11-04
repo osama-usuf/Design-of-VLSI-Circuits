@@ -1,0 +1,49 @@
+ 
+****************************************
+Report : constraint
+Design : fifo
+Version: O-2018.06-SP1
+Date   : Thu Nov  3 19:41:47 2022
+****************************************
+
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    clk_read                    22.06      1.00     22.06
+    clk_write                   13.03      1.00     13.03
+    default                      0.00      1.00      0.00
+    -----------------------------------------------------
+    max_delay/setup                                 35.08
+
+                              Total Neg  Critical
+    Group (critical_range)      Slack    Endpoints   Cost
+    -----------------------------------------------------
+    clk_read                 17283.16        96   2117.34
+    clk_write                10393.73        96   1250.48
+    default                      0.00         0      0.00
+    -----------------------------------------------------
+    critical_range                                3367.82
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    clk_read (no fix_hold)       0.00      1.00      0.00
+    clk_write (no fix_hold)      0.00      1.00      0.00
+    default                      0.00      1.00      0.00
+    -----------------------------------------------------
+    min_delay/hold                                   0.00
+
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    max_fanout                                       0.00 (MET)
+    max_capacitance                                  0.00 (MET)
+    max_delay/setup                                 35.08 (VIOLATED)
+    sequential_clock_pulse_width                     0.00 (MET)
+    critical_range                                3367.82 (VIOLATED)
+    max_area                                     680643.00
+                                                          (VIOLATED)
+
+
+1
