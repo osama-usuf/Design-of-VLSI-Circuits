@@ -1,0 +1,188 @@
+
+
+================================================================
+== Vivado HLS Report for 'myproject'
+================================================================
+* Date:           Sun Oct 23 21:52:52 2022
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        myproject_prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z045-ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|     4.326|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   16|   16|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------------------------------------------+--------------------------------------------------+-----+-----+-----+-----+----------+
+        |                                                                  |                                                  |  Latency  |  Interval | Pipeline |
+        |                             Instance                             |                      Module                      | min | max | min | max |   Type   |
+        +------------------------------------------------------------------+--------------------------------------------------+-----+-----+-----+-----+----------+
+        |grp_dense_latency_0_0_0_0_0_0_0_0_0_0_0_1_fu_30                   |dense_latency_0_0_0_0_0_0_0_0_0_0_0_1             |    8|    8|    1|    1| function |
+        |grp_dense_latency_0_0_0_0_0_0_0_0_0_0_0_fu_36                     |dense_latency_0_0_0_0_0_0_0_0_0_0_0               |    4|    4|    1|    1| function |
+        |call_ret1_relu_ap_fixed_ap_fixed_16_8_5_3_0_ReLU_config3_s_fu_50  |relu_ap_fixed_ap_fixed_16_8_5_3_0_ReLU_config3_s  |    0|    0|    1|    1| function |
+        +------------------------------------------------------------------+--------------------------------------------------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|       4|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        0|   1231|  162322|   74144|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|       3|    -|
+|Register         |        -|      -|     337|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|   1231|  162659|   74151|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1090|    900|  437200|  218600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|    136|      37|      33|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------------------------------------------------+--------------------------------------------------+---------+-------+--------+-------+-----+
+    |                             Instance                             |                      Module                      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
+    +------------------------------------------------------------------+--------------------------------------------------+---------+-------+--------+-------+-----+
+    |grp_dense_latency_0_0_0_0_0_0_0_0_0_0_0_fu_36                     |dense_latency_0_0_0_0_0_0_0_0_0_0_0               |        0|     75|    7470|   1679|    0|
+    |grp_dense_latency_0_0_0_0_0_0_0_0_0_0_0_1_fu_30                   |dense_latency_0_0_0_0_0_0_0_0_0_0_0_1             |        0|   1156|  154852|  72245|    0|
+    |call_ret1_relu_ap_fixed_ap_fixed_16_8_5_3_0_ReLU_config3_s_fu_50  |relu_ap_fixed_ap_fixed_16_8_5_3_0_ReLU_config3_s  |        0|      0|       0|    220|    0|
+    +------------------------------------------------------------------+--------------------------------------------------+---------+-------+--------+-------+-----+
+    |Total                                                             |                                                  |        0|   1231|  162322|  74144|    0|
+    +------------------------------------------------------------------+--------------------------------------------------+---------+-------+--------+-------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |ap_block_pp0_stage0_11001         |    and   |      0|  0|   1|           1|           1|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|   1|           1|           1|
+    |ap_enable_pp0                     |    xor   |      0|  0|   2|           1|           2|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0|   4|           3|           4|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------+----+-----------+-----+-----------+
+    |      Name      | LUT| Input Size| Bits| Total Bits|
+    +----------------+----+-----------+-----+-----------+
+    |input1_V_blk_n  |   3|          2|    1|          2|
+    +----------------+----+-----------+-----+-----------+
+    |Total           |   3|          2|    1|          2|
+    +----------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------+----+----+-----+-----------+
+    |           Name           | FF | LUT| Bits| Const Bits|
+    +--------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                 |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter10  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter11  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter12  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter13  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter14  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter15  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter16  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter4   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter5   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter6   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter7   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter8   |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter9   |   1|   0|    1|          0|
+    |layer2_out_0_V_reg_149    |  16|   0|   16|          0|
+    |layer2_out_1_V_reg_154    |  16|   0|   16|          0|
+    |layer2_out_2_V_reg_159    |  16|   0|   16|          0|
+    |layer2_out_3_V_reg_164    |  16|   0|   16|          0|
+    |layer2_out_4_V_reg_169    |  16|   0|   16|          0|
+    |layer2_out_5_V_reg_174    |  16|   0|   16|          0|
+    |layer2_out_6_V_reg_179    |  16|   0|   16|          0|
+    |layer2_out_7_V_reg_184    |  16|   0|   16|          0|
+    |layer2_out_8_V_reg_189    |  16|   0|   16|          0|
+    |layer2_out_9_V_reg_194    |  16|   0|   16|          0|
+    |layer3_out_0_V_reg_199    |  16|   0|   16|          0|
+    |layer3_out_1_V_reg_204    |  16|   0|   16|          0|
+    |layer3_out_2_V_reg_209    |  16|   0|   16|          0|
+    |layer3_out_3_V_reg_214    |  16|   0|   16|          0|
+    |layer3_out_4_V_reg_219    |  16|   0|   16|          0|
+    |layer3_out_5_V_reg_224    |  16|   0|   16|          0|
+    |layer3_out_6_V_reg_229    |  16|   0|   16|          0|
+    |layer3_out_7_V_reg_234    |  16|   0|   16|          0|
+    |layer3_out_8_V_reg_239    |  16|   0|   16|          0|
+    |layer3_out_9_V_reg_244    |  16|   0|   16|          0|
+    +--------------------------+----+----+-----+-----------+
+    |Total                     | 337|   0|  337|          0|
+    +--------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------+-----+------+------------+--------------+--------------+
+|    RTL Ports    | Dir | Bits |  Protocol  | Source Object|    C Type    |
++-----------------+-----+------+------------+--------------+--------------+
+|ap_clk           |  in |     1| ap_ctrl_hs |   myproject  | return value |
+|ap_rst           |  in |     1| ap_ctrl_hs |   myproject  | return value |
+|ap_start         |  in |     1| ap_ctrl_hs |   myproject  | return value |
+|ap_done          | out |     1| ap_ctrl_hs |   myproject  | return value |
+|ap_idle          | out |     1| ap_ctrl_hs |   myproject  | return value |
+|ap_ready         | out |     1| ap_ctrl_hs |   myproject  | return value |
+|ap_return_0      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|ap_return_1      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|ap_return_2      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|ap_return_3      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|ap_return_4      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|ap_return_5      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|ap_return_6      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|ap_return_7      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|ap_return_8      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|ap_return_9      | out |    16| ap_ctrl_hs |   myproject  | return value |
+|input1_V_blk_n   | out |     1| ap_ctrl_hs |   myproject  | return value |
+|input1_V_ap_vld  |  in |     1|   ap_vld   |   input1_V   |    pointer   |
+|input1_V         |  in |  5184|   ap_vld   |   input1_V   |    pointer   |
++-----------------+-----+------+------------+--------------+--------------+
+
