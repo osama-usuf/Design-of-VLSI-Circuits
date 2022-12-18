@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Nov  9 18:58:19 2022
+# Process ID: 2982
+# Current directory: /home/zazu/vivado_projects/z045_hls_16_8_vivado_2019/z045_hls_16_8_vivado_2019.runs/impl_1
+# Command line: vivado -log design_1_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
+# Log file: /home/zazu/vivado_projects/z045_hls_16_8_vivado_2019/z045_hls_16_8_vivado_2019.runs/impl_1/design_1_wrapper.vdi
+# Journal file: /home/zazu/vivado_projects/z045_hls_16_8_vivado_2019/z045_hls_16_8_vivado_2019.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source design_1_wrapper.tcl -notrace
